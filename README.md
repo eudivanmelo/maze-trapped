@@ -15,6 +15,20 @@
     - Métodos públicos:
         - void exitMaze() para implementar a lógica de saída.
 
+[*] Definir estrutura da pilha
+- Criar uma classe Stack com os seguintes elementos:
+    - Atributos:
+        - `elements`: Ponteiro para o array que armazena os elementos da pilha.
+        - `maxSize`: Limita o número de elementos.
+        - `top`: Controla o índice do elemento no topo da pilha.
+    - Métodos:
+        - `Construtor`: Inicializa o array dinâmico usando new.
+        - `Destrutor`: Libera a memória alocada com delete[].
+        - `Push`: Insere elementos no topo, verificando se a pilha está cheia.
+        - `Pop`: Remove o elemento do topo, verificando se está vazia.
+        - `Peek`: Retorna o valor do topo sem removê-lo.
+        - `IsEmpty` e `IsFull`: Verificam o estado da pilha.
+
 [ ] Lógica para inicialização do labirinto
 - Implementar uma função para ler o labirinto de entrada (teclado ou arquivo).
 - Deduzir automaticamente as dimensões do labirinto.
