@@ -15,7 +15,7 @@
     - Métodos públicos:
         - void exitMaze() para implementar a lógica de saída.
 
-[*] Definir estrutura da pilha
+[x] Definir estrutura da pilha
 - Criar uma classe Stack com os seguintes elementos:
     - Atributos:
         - `elements`: Ponteiro para o array que armazena os elementos da pilha.
