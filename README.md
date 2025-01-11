@@ -1,55 +1,42 @@
-# Aplicação de Pilha: Trapped Mouse
+# Maze Trapped
 
-## Tarefas
-[ ] Definir a estrutura do projeto
-- Criar uma classe Cell com os seguintes elementos:
-    - Atributos privados: int x e int y.
-    - Sobrecarga do operador ==.
+Este projeto é um jogo de labirinto onde o objetivo é encontrar o queijo no menor tempo possível. O labirinto é representado por uma matriz de células, onde cada célula pode ser um espaço livre ou uma parede.
 
-- Criar uma classe Maze com:
-    - Atributos privados:
-        - Cell currentCell, exitCell, entryCell.
-        - const char exitMarker, entryMarker, visited, passage, wall.
-        - Pilha de células (stack<Cell> mazeStack).
-        - Array bidimensional de caracteres (std::vector<std::string> maze).
-    - Métodos públicos:
-        - void exitMaze() para implementar a lógica de saída.
+Este projeto foi desenvolvido para a disciplina de Estrutura de Dados Lineares do curso de Análise e Desenvolvimento de Sistemas (ADS) com o objetivo de estudar a estrutura de dados Pilha.
 
-[*] Definir estrutura da pilha
-- Criar uma classe Stack com os seguintes elementos:
-    - Atributos:
-        - `elements`: Ponteiro para o array que armazena os elementos da pilha.
-        - `maxSize`: Limita o número de elementos.
-        - `top`: Controla o índice do elemento no topo da pilha.
-    - Métodos:
-        - `Construtor`: Inicializa o array dinâmico usando new.
-        - `Destrutor`: Libera a memória alocada com delete[].
-        - `Push`: Insere elementos no topo, verificando se a pilha está cheia.
-        - `Pop`: Remove o elemento do topo, verificando se está vazia.
-        - `Peek`: Retorna o valor do topo sem removê-lo.
-        - `IsEmpty` e `IsFull`: Verificam o estado da pilha.
+## Estrutura do Projeto
 
-[ ] Lógica para inicialização do labirinto
-- Implementar uma função para ler o labirinto de entrada (teclado ou arquivo).
-- Deduzir automaticamente as dimensões do labirinto.
-- Adicionar paredes externas ao labirinto.
-- Garantir que apenas os caracteres 1, 0, e e m sejam aceitos.
+- `main.cpp`: Arquivo principal que contém a lógica do jogo.
+- `src/maze.cpp`: Implementação da classe `Maze` que representa o labirinto.
+- `include/maze.h`: Declaração da classe `Maze`.
+- `include/cell.h`: Declaração da classe `Cell` que representa uma célula do labirinto.
+- `default.txt`: Arquivo de exemplo que contém a representação de um labirinto.
 
-[ ] Implementar algoritmo de saída do labirinto
-- Utilizar uma pilha para rastrear o caminho.
-- Implementar lógica de Backtracking:
-    - Marcar células visitadas com o caractere ..
-    - Testar direções na ordem: direita, esquerda, baixo, cima.
-    - Retroceder para a última posição válida em caso de beco sem saída.
+## Como Compilar
 
-[ ] Adicionar funcionalidade de animação
-- Animação no terminal: Exibir cada passo do rato no labirinto.
+Para compilar o projeto, utilize o seguinte comando:
 
-## Arquivo do mapa
+```sh
+g++ .\main.cpp .\src\*.cpp -I .\include -o main.exe
+```
 
-O arquivo terá em seu contéudo algumas informações que representarão os objetos no mapa
+## Como Executar
+Após a compilação, execute o arquivo gerado:
 
-- `e`: representará a saída
-- `m`: representará a posição inicial do rato
-- `0` (zero): são os corredores
-- `1` (um): são as paredes
+```sh
+./main.exe
+```
+
+## Arquivo de Labirinto
+O arquivo `default.txt` contém a representação do labirinto. A primeira linha indica a largura e a altura do labirinto. As linhas seguintes representam as células do labirinto, onde `1` indica uma parede e `0` indica um espaço livre. O caractere `m` representa a posição inicial do jogador e `e` representa a posição do queijo.
+
+Exemplo de arquivo `default.txt`:
+
+```
+5 5
+1 1 1 1 1
+1 m 0 0 1
+1 1 0 1 1
+1 0 0 e 1
+1 1 1 1 1
+``
